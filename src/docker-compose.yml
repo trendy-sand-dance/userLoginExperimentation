@@ -8,4 +8,3 @@ services:
       - /app/node_modules # prevent overwriting node_modules
     working_dir: /app
     command: npm run dev # run with hot reload
-    
