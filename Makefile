@@ -7,8 +7,12 @@ all: build
 build:
 	docker-compose build
 
-run: 
+run:
 	docker-compose up -d
+
+everything: build run logs
+
+again: clean build run logs
 
 status:
 	docker-compose ps -a
