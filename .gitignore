@@ -1,5 +1,7 @@
-# Ignore all
-*
+## Ignore all
+#*
+#Unignore Dockerfile
+!Dockerfile
 
 # Unignore Makefile
 !Makefile
