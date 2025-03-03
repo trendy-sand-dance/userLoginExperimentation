@@ -1,3 +1,6 @@
+COMPOSE_FILE = ./docker-compose.yml
+DB_FILE = ./fastify/database/data.db
+ENV_FILE = .env
 
 all: build
 
@@ -14,6 +17,9 @@ logs:
 	docker-compose logs
 
 clean:
+	@if [ -f $(DB_FILE) ]; then \
+		rm $(DB_FILE); \
+	fi
 	@docker stop $$(docker ps -qa) || true
 	@docker rm $$(docker ps -qa) || true
 
