@@ -1,14 +1,19 @@
 // imports
 import Fastify from 'fastify'
-//import routes from "./routes/routes.js";
-//import formbody from "@fastify/formbody";
+import routes from "./routes/routes.js"
+import formbody from "@fastify/formbody"
+
+// view and EJS stuff
+import path from "node:path"
+import fastifyView from "@fastify/view"
+import ejs from "ejs"
+const __dirname = import.meta.dirname
 
 // static fastify
-//import fastifyStatic from "@fastify/static";
+import fastifyStatic from "@fastify/static"
 
 // database
-// import dataBase from "./database/db.js";
-
+ import dataBase from "./database/db.js"
 
 // initialisation
 const fastify = Fastify({
@@ -17,10 +22,28 @@ const fastify = Fastify({
 const PORT = 3000
 const HOST = 'localhost'
 
-// declare route - standard '/'
-fastify.get('/', function handler (request, reply) {
-	reply.send ({ hello: 'fastify server up and running '})
+//// declare route - standard '/'
+//fastify.get('/', function handler (request, reply) {
+//	reply.send ({ hello: 'fastify server up and running '})
+//})
+
+fastify.register(dataBase)
+fastify.register(formbody)
+
+fastify.register(fastifyView, {
+	engine: {
+		ejs,
+	},
+	root: path.join(__dirname, "views"),
+	viewExt: "ejs",
 })
+
+fastify.register(fastifyStatic, {
+	root: path.join(__dirname, "public"),
+	prefix: "/public",
+})
+
+fastify.register(routes)
 
 // run the server
 fastify.listen({ port:PORT, host:HOST }, (err) => {
@@ -28,6 +51,6 @@ fastify.listen({ port:PORT, host:HOST }, (err) => {
 		console.error(err)
 		process.exit(1)
 	}
-	console.log(`Server listening at ${HOST} ${PORT}`)
+	console.log(`Server listening at host: ${HOST} port: ${PORT}`)
 })
 
