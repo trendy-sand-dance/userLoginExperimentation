@@ -14,6 +14,7 @@ import fastifyStatic from "@fastify/static";
 
 // database
 import dbConnector from "./database/dbConnector.js";
+import dbChecker from "./database/dbChecker.js";
 
 // initialisation
 const app = fastify({logger: { level: 'error' }});
@@ -25,6 +26,7 @@ app.register(dbConnector);
 console.log("database connected and registered");
 app.register(formbody);
 app.register(routes);
+app.register(dbChecker);
 
 app.register(fastifyView, {
 	engine: {

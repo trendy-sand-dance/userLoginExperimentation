@@ -23,7 +23,7 @@ async function dbConnector(fastify, options) {
 		const query = `
 			CREATE TABLE userTable (
 				id INTEGER PRIMARY KEY,
-				name STRING,
+				name STRING NOT NULL,
 				username STRING NOT NULL UNIQUE,
 				password STRING NOT NULL,
 				email STRING UNIQUE
