@@ -1,13 +1,9 @@
-import fp from "fastify-plugin";
-
-async function dbChecker(fastify, options)  {
+export function dbChecker(request, reply)  {
 
 	const db = request.server.db;
 	const query = `SELECT * FROM userTable`;
-	const users = db.prepare(query).all();
+	const userTable = db.prepare(query).all();
 
-	console.log(users);
-
+	console.log(userTable);
+	return reply.send({ message: "Someone is checking out the db..." });
 };
-
-export default fp(dbChecker);
