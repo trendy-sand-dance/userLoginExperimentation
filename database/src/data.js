@@ -7,10 +7,10 @@ const db = new Database('app.db');
 
 //const query = `
 //	CREATE TABLE testTable (
-	//		id INTEGER PRIMARY KEY,
-	//		name STRING NOT NULL,
-	//		username STRING NOT NULL UNIQUE
-	//	)
+//			id INTEGER PRIMARY KEY,
+//			name STRING NOT NULL,
+//			username STRING NOT NULL UNIQUE
+//		)
 //`;
 
 //db.exec(query);
@@ -21,16 +21,16 @@ const db = new Database('app.db');
 // -----------------------------------------------//
 
 //const data = [
-	//	{name: "someone", username: "myuser"},
-	//	{name: "person2", username: "user2"},
-	//	{name: "moredata", username: "me456"}
-	//];
+//		{name: "someone", username: "myuser"},
+//		{name: "person2", username: "user2"},
+//		{name: "moredata", username: "me456"}
+//	];
 	
-	//const insertData = db.prepare("INSERT INTO testTable (name, username) VALUES (?, ?)");
+//	const insertData = db.prepare("INSERT INTO testTable (name, username) VALUES (?, ?)");
 	
-	//data.forEach((element) => {
-		//	insertData.run(element.name, element.username);
-		//});
+//	data.forEach((element) => {
+//			insertData.run(element.name, element.username);
+//		});
 
 		
 // -----------------------------------------------//
@@ -48,8 +48,8 @@ const db = new Database('app.db');
 // -----------------------------------------------//
 
 // '?' for not yet provided data, give <id> in the get() call | searching db for id - 2 
-const user = db.prepare('SELECT * FROM testTable WHERE id = ?').get(2);
-console.log(user);
+//const user = db.prepare('SELECT * FROM testTable WHERE id = ?').get(2);
+//console.log(user);
 
 // conventional + best practice to close when using for an application
 // doesnt delete/remove anything, just dont keep it open unnecessarily

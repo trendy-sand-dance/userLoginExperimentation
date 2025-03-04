@@ -1,5 +1,5 @@
 COMPOSE_FILE = ./docker-compose.yml
-DB_FILE = ./fastify/database/db.db
+DB_FILE = ./fastify/database/database.db
 ENV_FILE = .env
 
 all: build

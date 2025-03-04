@@ -13,19 +13,15 @@ const __dirname = import.meta.dirname
 import fastifyStatic from "@fastify/static"
 
 // database
-import dataBase from "./database/db.js"
+import dataBase from "./database/dbCreation.js"
 
 // initialisation
 const fastify = Fastify({
 		logger: { level: 'error' }
 })
+
 const PORT = 3000
 const HOST = '0.0.0.0'
-
-//// declare route - standard '/'
-//fastify.get('/', function handler (request, reply) {
-//	reply.send ({ hello: 'fastify server up and running '})
-//})
 
 fastify.register(dataBase)
 fastify.register(formbody)

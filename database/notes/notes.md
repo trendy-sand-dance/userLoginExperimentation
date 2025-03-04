@@ -56,6 +56,13 @@ SqliteError: UNIQUE constraint failed: testTable.username
 
 manually check / access database like running mysql:
 sqlite3 app.db // sqlite3 <database name (check file if needed)>
+OR
+sqlite3
+.open <filename> (inside sqlite CLI)
+
+// list tables in db
+(inside spqlite CLI)
+.tables
 
 select * from <table>;
 -> returns list of data inside db table
