@@ -1,3 +1,8 @@
 export async function getDashboard(request, reply) {
-	return reply.view("dashboard", { title: "Dashboard" })
-}
+	
+	const db = request.server.db;
+	const query = `SELECT * FROM userTable`;
+	const userTable = db.prepare(query).all();
+	
+	return reply.view("dashboard", { title: "Dashboard", userTable });
+};

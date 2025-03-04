@@ -8,14 +8,19 @@
     <link rel="stylesheet" type="text/css" href="/public/styles.css" />
   </head>
   <body>
-
     <header>
-		  <div class="div-register">
-			  <h1>Welcome <% username %></h1>
-			  <h2>Dashboard</h2>
-		  </div>
-    </header>
-
+		<h1>Dashboard</h1>
+	</header>
+      <div class="div-register">
+        <% if (userTable && userTable.length > 0) { %>
+          <ul class="posts">
+            <% userTable.forEach(user => { %>
+              <li>
+                <p>Welcome <%= user.username %></p>
+              </li>
+            <% }) %>
+          </ul>
+        <% } %>
+      </div>
   </body>
 </html>
-

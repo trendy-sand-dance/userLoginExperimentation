@@ -8,25 +8,19 @@
     <link rel="stylesheet" type="text/css" href="/public/styles.css" />
   </head>
   <body>
-
-    <header>
-		<h2>Home</h2>
-    </header>
-
-	<h1>Users</h1>
-	<% if (users.length > 0) { %>
-	<ul class="posts">
-		<% user.forEach(post => { %>
-		<li>
-			<p><% users.id %></p>
-			<p><% users.username %></p>
-			<p><% users.password %></p>
-		</li>
-		<% }) %>
-	</ul>
+	<h1>Users:</h1>
+	<% if (userTable && userTable.length > 0) 
+	{ %>
+		<ul class="posts">
+			<% userTable.forEach(user => { %>
+			<li>
+			<p>ID: <%= user.id %></p>
+			<p>Username: <%= user.username %></p>
+			</li>
+			<% }) %>
+		</ul>
 	<% } else { %>
-	<p>There are no users yet. </p>
+	<p>There are no userTable yet. </p>
 	<% } %>
-
   </body>
 </html>
