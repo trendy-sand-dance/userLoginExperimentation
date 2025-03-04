@@ -13,7 +13,7 @@ const __dirname = import.meta.dirname
 import fastifyStatic from "@fastify/static"
 
 // database
- import dataBase from "./database/db.js"
+import dataBase from "./database/db.js"
 
 // initialisation
 const fastify = Fastify({
@@ -39,8 +39,8 @@ fastify.register(fastifyView, {
 })
 
 fastify.register(fastifyStatic, {
-	root: path.join(__dirname, "public"),
-	prefix: "/public",
+	root: path.join(__dirname, "public-css"),
+	prefix: "/public-css",
 })
 
 fastify.register(routes)
