@@ -17,7 +17,9 @@ export function registerUser(request, reply) {
 
 		const stmt = db.prepare("INSERT INTO userTable (name, email, username, password) VALUES (?, ?, ?, ?)");
 		const result = stmt.run(name, email, username, password);
+		console.log("New user created: " + username);
 		return reply.send({ message: `New user added: ${username}`, id: result.lastInsertRowid });
+		//return reply.view("register", { title: "Register" });
 	}
 	catch (err) {
 		console.log(err);
